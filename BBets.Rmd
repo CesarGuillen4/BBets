@@ -42,6 +42,21 @@ The function will be given a class_size by number of students, odds, and Number_
   
 <!--Explain and display your method of coming up with a 95% confidence interval of  professor Brownlows winnings (or losings)-->
 
+What we're going to do is to build an array made up of 40 different substitute teachers and have them teach 637 classes. After this they will be doing the same test and we will compare the averages of their earnings.
+```{r}
+Array40<- vector("numeric")
+for(i in 1:40){
+  Array40[i]<-BrLw(numClass = 35, odds = 2, countoDo = 637)
+}
+
+fav_stats(Array40)
+lcl<-mean(Array40) - 2*sd(Array40)
+ucl<-mean(Array40) + 2*sd(Array40)
+options(digits = 1)
+print(paste(lcl,ucl))
+```
+
+The lower end is `r lcl` to the upper end `r ucl`. 
 
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
 
