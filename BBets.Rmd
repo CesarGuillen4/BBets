@@ -65,8 +65,20 @@ With Brownlow giving off the bet that is 2:1, the lower end of his earnings is `
 
 <!--Decide on your methods:  In this section explain the approach you will take to attack the issue --- how will you decide on a likely estimate of professor Brownlow's earnings or losses after 637 bets. Also explain how you construct a 95% confidence interval about your estimate of his winnings !-->
 
+```{r}
+Odds40<- vector("numeric")
+for (i in 1: 100){
+  Odds40[i]<- BrLw(odds = 4.3868)
+} 
 
+fav_stats(Odds40)
+lcl<-mean(Odds40) - 2*sd(Odds40)
+ucl<-mean(Odds40) + 2*sd(Odds40)
+options(digits = 1)
+print(paste(lcl,ucl))
+```
 
+While experimenting with different odds to make this bet fair, we found that 4.3868 would make this bet fair. The reason we know that these odds are going to be fair is by seeing that he will be earning no money if its following odds. The mean is `r mean(Odds40)`, the lowest amount he can earn is `r lcl`, and the highest amount is `r ucl`.   
 
 # What size of class makes the 2:1 bet fair?  Use manipulation of number of Students to tune Brownlows earnings to zero.
 
