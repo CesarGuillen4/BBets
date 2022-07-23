@@ -84,9 +84,20 @@ While experimenting with different odds to make this bet fair, we found that 4.3
 
 <!--Explain and display the results of your method of coming up with the estimate of professor Brownlows betting profits!-->
 
+```{r}
+Class40<- vector("numeric")
+for (i in 1: 100){
+  Class40[i]<- BrLw(numClass = 28)
+} 
 
+fav_stats(Class40)
+lcl<-mean(Class40) - 2*sd(Class40)
+ucl<-mean(Class40) + 2*sd(Class40)
+options(digits = 1)
+print(paste(lcl,ucl))
+```
 
-
+After going through many number of class sizes, it came down to the class size being 28 to have the closest average to 0. The mean of this table is `r mean(Class40)`, the lowest amount of earnings is `r lcl`, and the highest amount of earnings is `r ucl`. 
 
 
 
