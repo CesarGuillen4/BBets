@@ -58,6 +58,8 @@ print(paste(lcl,ucl))
 
 The lower end is `r lcl` to the upper end `r ucl`. 
 
+With Brownlow giving off the bet that is 2:1, the lower end of his earnings is `r lcl`, and his higher end of his earnings is `r ucl`. 
+
 # What are the fair odds? Use manipulation of odds in the function to tune Brownlows earnings to zero. 
 
 
